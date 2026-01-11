@@ -1,7 +1,7 @@
 # NordVPN_WireGuard
 NordVPN WireGuard Configuration Generation
 
-## Prerequisites
+## I. Prerequisites
 
 ### Get Access Token
 1.  Log in to your [NordAccount dashboard](https://my.nordaccount.com/dashboard/).
@@ -14,13 +14,13 @@ NordVPN WireGuard Configuration Generation
 ### Country Code Format
 If you specify a country, use the **2-letter ISO 3166-1 alpha-2 code** (e.g., `US`, `DE`, `GB`, `JP`).
 
-You can use this command to check available country
+You can use this command to check available countries
 
 ```
 curl --silent "https://api.nordvpn.com/v1/servers/countries" | jq --raw-output '.[].name, .[].code'
 ```
 
-## Run with Docker (Recommended)
+## II. Run with Docker (Recommended)
 
 1.  **Build the Docker image:**
     ```bash
@@ -33,7 +33,17 @@ curl --silent "https://api.nordvpn.com/v1/servers/countries" | jq --raw-output '
     docker run --rm -v $(pwd):/output -e ACCESS_TOKEN="your_token" -e COUNTRY_CODE="us" nordvpn-wireguard
     ```
 
-## Run from Source (Python)
+    **Windows (PowerShell):**
+    ```powershell
+    docker run --rm -v ${PWD}:/output -e ACCESS_TOKEN="your_token" -e COUNTRY_CODE="us" nordvpn-wireguard
+    ```
+
+    **Windows (Command Prompt):**
+    ```cmd
+    docker run --rm -v "%cd%":/output -e ACCESS_TOKEN="your_token" -e COUNTRY_CODE="us" nordvpn-wireguard
+    ```
+
+## III. Run from Source (Python)
 
 1.  **Save the code:** Save the code as a Python file (e.g., `main.py`).
 2.  **Install dependencies:** Open your terminal or command prompt and run:
@@ -58,3 +68,4 @@ curl --silent "https://api.nordvpn.com/v1/servers/countries" | jq --raw-output '
 ## Reference
 
   * https://gist.github.com/bluewalk/7b3db071c488c82c604baf76a42eaad3
+  * If you wanna support my work please use [the reference link for register](https://refer-nordvpn.com/ADjYrlWdEEY)
