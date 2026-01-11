@@ -14,6 +14,12 @@ NordVPN WireGuard Configuration Generation
 ### Country Code Format
 If you specify a country, use the **2-letter ISO 3166-1 alpha-2 code** (e.g., `US`, `DE`, `GB`, `JP`).
 
+You can use this command to check available country
+
+```
+curl --silent "https://api.nordvpn.com/v1/servers/countries" | jq --raw-output '.[].name, .[].code'
+```
+
 ## Run with Docker (Recommended)
 
 1.  **Build the Docker image:**
@@ -48,3 +54,7 @@ If you specify a country, use the **2-letter ISO 3166-1 alpha-2 code** (e.g., `U
     python main.py
     ```
     It will print the WireGuard configuration to your console and save it to a file (e.g., `yyyymmdd-nordvpn-us.conf`) in the current directory.
+
+## Reference
+
+  * https://gist.github.com/bluewalk/7b3db071c488c82c604baf76a42eaad3
